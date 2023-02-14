@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3410663946378836089}
   - component: {fileID: 4165243416093404303}
   - component: {fileID: 935863045540060205}
-  - component: {fileID: 7602060979825339451}
   m_Layer: 0
   m_Name: Racer
   m_TagString: Racer
@@ -99,18 +98,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7602060979825339451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6948174096432270105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdf7905384d447044a65f006aa1098d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 6948174096432270105}
-  agileSpeed: 2
-  tileWidth: 4

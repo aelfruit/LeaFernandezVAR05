@@ -14,13 +14,13 @@ public class FinishLine : MonoBehaviour
     public TextMeshProUGUI gameText;
     
     
-    void Start()
+    void Awake()
     {   
         //Pool the players or racers
-        GameObject.FindGameObjectsWithTag("Racer");
+        GameObject.FindGameObjectsWithTag("Racer");        
         for (int i =0; i < Racers.Length; i++)
         {
-            Debug.Log($" {Racers[i].name} will join the game");
+            Debug.Log($" {Racers[i].name} joins the game");
         }
     }
         
@@ -41,19 +41,23 @@ public class FinishLine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (WinningRacer.transform.position.x >= finishLine.transform.position.x )
+        if (WinningRacer.transform.position.x >= finishLine.transform.position.x)
         {
             //anounce winner          
-            //Debug.Log($"{WinningRacer.name} made it.");
+            Debug.Log($"Say it again {WinningRacer.name} made it.");
             gameText.text = $" Whoah {WinningRacer.name} won!";
 
-            //disable movement for players
+            //disable movement or destroy players || CURRENTLY NOT BEHAVING AS DESIRED
             GameObject.FindGameObjectsWithTag("Racer");
             for (int i = 0; i < Racers.Length; i++)
-            {
+            {                              
                 foreach (GameObject Racer in Racers)
-                {                    
-                    GetComponent<Racer>().enabled = false;                                       
+                {
+                    //Destroy(Racers[i]);
+                    if (Racer != WinningRacer)
+                    { Racers[i].GetComponent<MeshRenderer>().enabled = false; }
+                    else
+                    { Racers[i].GetComponent<MeshRenderer>().enabled = true; }
                 }
             }
         }

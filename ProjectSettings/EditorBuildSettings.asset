@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GuessingGame/GuessingGameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Race/Race.unity
+    guid: 7866f0385fd0b734e84160e641f24de7
   m_configObjects: {}
