@@ -24,11 +24,12 @@ public class Race : MonoBehaviour
     private int currentTurn = 0;
     public int courseLength = 10;
     public float tileWidth = 4f;
-    private List<float> chancesToMove;
+    private List<TerrainTile> generatedTerrain = new List<TerrainTile>();
+    private List<float> chancesToMove = new List<float>();
 
     //The race will play out in turns.Use coroutines and yield return new WaitForSeconds to create a brief pause between each turn.
     //Every turn, each runner will attempt to move to the next tile in the course.
-    public float turnDuration = 1f;
+    public float turnDuration = .2f;
 
     //When one runner makes it to the finish line, the race is over and the results are displayed.
     public TextMeshProUGUI GameTexts;
@@ -49,6 +50,7 @@ public class Race : MonoBehaviour
             if (Random.value > 0.5f)
             {
                 tile.GetComponent<TerrainTile>().SetColor(TerrainTile.terrain.regularLawn);
+                //generatedTerrain.Add();
                 //chancesToMove.Add(tile.GetComponent<TerrainTile>().ChanceToMove[0]); ??turning this on stops generating tiles
             }
             else
@@ -63,6 +65,7 @@ public class Race : MonoBehaviour
         GameTexts.text = "Racing Game! Pick and bet on your capsule racer";
         
         Invoke(nameof(ClearText), 2);
+        StartCoroutine(GameMechanics());
     }
 
     public void StartButton()
@@ -84,28 +87,21 @@ public class Race : MonoBehaviour
         }         
     }
 
-    private void RaceCapsulesbackup()
-    {   
-        int randomTurn = Random.Range(0, 1);
-
-        //Racer[randomTurn].transform.Translate(Vector3.right * Time.deltaTime);
-        Racer[randomTurn].transform.position += agileSpeed * Time.deltaTime * new Vector3(tileWidth, 0, 0);
-        GameTexts.text = $"{Racer[randomTurn].name} is moving..";
-        Invoke(nameof(ClearText), 1);      
-
-    }
 
     private void RaceCapsules()
     {
         if (Random.value > 0.5f)
         {
             Racer[0].transform.position += new Vector3(tileWidth, 0, 0);
+            GameTexts.text = $"{Racer[0].name} is moving..";
         }
 
         else
         {
             Racer[1].transform.position += new Vector3(tileWidth, 0, 0);
+            GameTexts.text = $"{Racer[1].name} is moving..";
         }
+        Invoke(nameof(ClearText), 1);
     }
 
     void ClearText()
@@ -117,7 +113,7 @@ public class Race : MonoBehaviour
 
     void Update()
     {
-        if (currentTurn >= courseLength+1)
+        if (currentTurn >= courseLength)
         {
             Debug.Log("Game is over");
             StopCoroutine(GameMechanics());
@@ -126,9 +122,9 @@ public class Race : MonoBehaviour
             Application.Quit();
         }
 
-        //Vector3 moveDirection = Vector3.zero;
-        //moveDirection = new Vector3(1, 0, 0);
-        // testing input version
+        //else
+        //    StartCoroutine(GameMechanics());
+
 
         if (Keyboard.current.dKey.isPressed)
         {
@@ -145,3 +141,16 @@ public class Race : MonoBehaviour
 
     }
 }
+
+/*
+private void RaceCapsulesbackup()
+{
+    int randomTurn = Random.Range(0, 1);
+
+    //Racer[randomTurn].transform.Translate(Vector3.right * Time.deltaTime);
+    Racer[randomTurn].transform.position += agileSpeed * Time.deltaTime * new Vector3(tileWidth, 0, 0);
+    GameTexts.text = $"{Racer[randomTurn].name} is moving..";
+    Invoke(nameof(ClearText), 1);
+
+}
+*/
