@@ -8,20 +8,17 @@ using TMPro;
 public class TwentyOne : MonoBehaviour
 {    
     public GameObject cardPrefab;    
-    public TextMeshProUGUI gameText;
-    public Transform deckOrigin;
-    public Transform Dealer;
-    public Transform Player;
-        
+    public TextMeshProUGUI gameText, scoreText;
+    public Transform deckOrigin, Dealer, Player;
+            
     private bool faceDown;
     
     public float cardOffset = 10f;
 
     public Button hitButton;
-
-    public TextMeshProUGUI scoreText;
-    private int scorePlayer;
-    private int scoreDealer;
+        
+    private int scorePlayer, scoreDealer;
+    
 
     public List<CardClass> deckOfCards = new List<CardClass>();
     public List<int> cardIndex = new List<int>();
@@ -39,12 +36,12 @@ public class TwentyOne : MonoBehaviour
 
         //dealer gives player 2 cards visible to player
         StartCoroutine(RandomDeal(!faceDown, Player));
-        StartCoroutine(RandomDeal(!faceDown, Player));
+        
 
         //dealer gets 2 cards only one visible to player
         //might be good to position on the dealer side
         StartCoroutine(RandomDeal(faceDown, Dealer));
-        StartCoroutine(RandomDeal(!faceDown, Dealer));
+        
 
 
         hitButton.onClick.AddListener(GetNewCard);
@@ -121,6 +118,7 @@ public class TwentyOne : MonoBehaviour
         int rand = cardIndex.Count - 1;
         int i = cardIndex[rand];
         deckOfCards[i].transform.position = Deal.transform.position;
+        //deckOfCards[i].value
         cardIndex.RemoveAt(rand);        
     }
 
