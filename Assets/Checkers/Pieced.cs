@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Piece : MonoBehaviour
+public class Pieced : MonoBehaviour
 {
     public int x, z;
     
