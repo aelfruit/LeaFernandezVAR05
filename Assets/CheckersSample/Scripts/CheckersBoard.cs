@@ -14,12 +14,14 @@ public class CheckersBoard : MonoBehaviour
 
     public Transform PiecesOrigin;
 
-    private Vector3 boardOffset = new Vector3(-4f, 0, -4f);
+    private Vector3 boardOffset = new Vector3(-4f, 0, -4);
     private Vector3 pieceOffset = new Vector3(.5f, 0, .5f);
 
-    private Vector2 mouseCast;
-    private Vector2 startMovePiece;
+    private Vector3 mouseCast;
+    private Vector3 startMovePiece;
     private Vector3 endMovePiece;
+
+    //private List<> 
 
 
     private void Start()
@@ -73,21 +75,33 @@ public class CheckersBoard : MonoBehaviour
     }
 
     private void MouseLocate()
-    {        
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+               
+            
             if (Physics.Raycast(ray, out RaycastHit hit ,50f, LayerMask.GetMask("GameBoard")))
             {
-                //Destroy(hit.transform.gameObject); will only affect if gameObject have collider
-                mouseCast.x = (int)hit.point.x - boardOffset.x;
-                mouseCast.y = (int)hit.point.z - boardOffset.z;
-                //Debug.Log($"Hit! at {mouseCast}");
+            //Destroy(hit.transform.gameObject); will only affect if gameObject have collider
+            //mouseCast.x = (int)hit.point.x - boardOffset.x;
+            //mouseCast.y = (int)hit.point.z - boardOffset.z;
+            mouseCast.x = 1+ Mathf.RoundToInt(hit.point.x) - boardOffset.x;
+            mouseCast.y = 1+ Mathf.RoundToInt(hit.point.z) - boardOffset.z;                           
+            //Debug.Log($"Hit! at {mouseCast.x}, {mouseCast.y}");
             }
+
+            else if (Mouse.current.rightButton.wasPressedThisFrame)
+            {
+            
+            }    
+            
+            /*
             else
             {
                 mouseCast.x = -1;
                 mouseCast.y = -1;
                 //Debug.Log($"Now at {mouseCast}");
-            }        
+            }      
+*/
     }
 
     private void SelectPiece(int x, int y)
@@ -101,7 +115,6 @@ public class CheckersBoard : MonoBehaviour
             selectedPiece = piece;
             startMovePiece = mouseCast;
             Debug.Log(selectedPiece.name);
-
         }
     }
 
@@ -128,20 +141,16 @@ public class CheckersBoard : MonoBehaviour
     }
 }
 
-//private void DestroyObject()
-//{
-//    if (Mouse.current.leftButton.wasPressedThisFrame)
-//    {
-//        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-//        if (Physics.Raycast(ray, out RaycastHit hit))
-//        {
-//            Destroy(hit.transform.gameObject);
-//            var em = collisionParticleSystem.emission;
-//            em.enabled = true;
-//            collisionParticleSystem.Play();
-//            soundEffect.time = .1f;
-//            soundEffect.Play();
-//        }
-//    }
-//}
+
+//rules
+//player clicks on piece then click/place piece on valid destination
+//two players.. take turns = 1 move diagonal
+//jump if = occupied by enemy piece but blank after
+//captured pieces removed
+//piece reach end of board = crowned can move forward backward
+//game over when one player loses all pieces or no valid move remaining
+
+
+
+
 
