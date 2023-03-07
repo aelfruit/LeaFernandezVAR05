@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c47ac7f37f3e84419f9ec0410b4bf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCrowned: 0
+  isTurnActive: 1
 --- !u!135 &-6940339220823413358
 SphereCollider:
   m_ObjectHideFlags: 0
