@@ -110,16 +110,16 @@ public class CheckersBoard : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 30.0f, LayerMask.GetMask("GameBoard")))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("GameBoard")))
         {
             //mouseCast.x = Mathf.RoundToInt(hit.point.x); 
             //mouseCast.y = Mathf.RoundToInt(hit.point.y);
 
+            Debug.DrawRay(hit.transform.position, Vector3.up, Color.green, 5f);
+            
             //float not as concise on pinpointing within tile use (int)
             mouseCast.x = (int)hit.point.x;
             mouseCast.y = (int)hit.point.z;
-
         }
     }
 
