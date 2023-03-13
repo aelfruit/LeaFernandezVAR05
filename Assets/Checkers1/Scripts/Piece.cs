@@ -5,19 +5,20 @@ public class Piece : MonoBehaviour
 
     public bool isCrowned;  
     public bool isTurnActive;
+      
 
 
-    //public void Crowned()
-    //{
-    //    //piece reaches end of board
-    //    //flip and can move forward/backwards
-    //    selectedPiece.transform.Rotate(Vector3.right * 180);
-    //}
+    public void CrownFlip(Piece piece)
+    {        
+        //piece reaches end of board
+        //flip and can move forward/backwards
+        piece.transform.Rotate(0, 180, 0);
+    }
 
-    //public void Captured()
-    //{
-    //    Destroy(gameObject);
-    //}
+    public void Captured()
+    {
+        Destroy(gameObject);
+    }
 
     public bool isCoercedJump(Piece[,] board, int x, int y)
     {

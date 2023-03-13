@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/GuessingGame/GuessingGameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Race/Race.unity
     guid: 7866f0385fd0b734e84160e641f24de7
+  - enabled: 1
+    path: Assets/A1-Bolf/BolfLoadScene.unity
+    guid: b06be16080756344ebeffe1cc32364ed
+  - enabled: 1
+    path: Assets/A1-Bolf/BolfScene.unity
+    guid: 195709ac969380847ba64b61f14a7916
+  - enabled: 1
+    path: Assets/A1-Bolf/BolfWinScene.unity
+    guid: ba08f53cda1dde54383b4059e50e62e3
   m_configObjects: {}

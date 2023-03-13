@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5a5e83d8bbc0924448b157b8aa1556a4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Cartoon Blocks Christmas
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b56f75665f73385429f6b1292ba8654d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

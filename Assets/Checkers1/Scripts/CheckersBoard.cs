@@ -104,6 +104,10 @@ public class CheckersBoard : MonoBehaviour
             if (Mouse.current.leftButton.wasReleasedThisFrame)
                 TryMovePiece((int)startMovePiece.x, (int)startMovePiece.y, x, y);
         }
+
+        //crownFlip
+
+        //selectedPiece.CrownFlip();
     }
 
     private void MouseLocate()
@@ -138,6 +142,7 @@ public class CheckersBoard : MonoBehaviour
                 selectedPiece = piece;
                 startMovePiece = mouseCast;
                 Debug.Log($"Picked {selectedPiece.name} at {mouseCast}");
+                
             }
             else
             {
@@ -180,6 +185,9 @@ public class CheckersBoard : MonoBehaviour
             startMovePiece = Vector2.zero;
             selectedPiece = null;
             return;
+
+            //selectedPiece.CrownFlip(selectedPiece);
+            //Debug.Log($"Crowned!!!{selectedPiece.transform.rotation.y}");
         }
 
         //did not go anywhere put it back
@@ -206,7 +214,8 @@ public class CheckersBoard : MonoBehaviour
                 {
                     pieces[(xStart + xEnd) / 2, (yStart + yEnd) / 2] = null;
                     Debug.Log($"{piece.name} captured!");
-                    Destroy(piece.gameObject);
+                    piece.Captured(); 
+                    //Destroy(piece.gameObject);
                     hasCaptured = true;
                 }
             }
@@ -236,7 +245,12 @@ public class CheckersBoard : MonoBehaviour
 
     }
 
-    private void EndTurn()
+    private void FixedUpdate()
+    {
+        
+    }
+
+        private void EndTurn()
     {
         int x = (int)endMovePiece.x;
         int y = (int)endMovePiece.y;
