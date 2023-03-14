@@ -29,8 +29,14 @@ public class Arrow : MonoBehaviour
 
     public void CeaseArrow()
     {        
-        //can add a particle effect for fun 
+        
         gameObject.SetActive(false);
+        //can add a particle effect for fun if there is time
+    }
+
+    public void ShowArrow()
+    {
+        gameObject.SetActive(true);
     }
 
 }

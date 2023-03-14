@@ -88,6 +88,7 @@ public class Bowling : MonoBehaviour
                 SetScore(score);
             }
         }
+        
     }
 
     private void SetScore(int n)

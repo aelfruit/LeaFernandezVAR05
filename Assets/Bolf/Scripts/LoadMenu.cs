@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LoadScene : MonoBehaviour
+public class LoadMenu : MonoBehaviour
 {
     public Button loadSceneButton;
     public Scene SceneToLoad;
@@ -14,7 +14,7 @@ public class LoadScene : MonoBehaviour
     public void LoadMenuScene()
     {
         //SceneManager.LoadScene(nameof(SceneToLoad));
-        SceneManager.LoadScene("BolfLoadScene");
+        SceneManager.LoadScene("BolfMenuScene");
     }
 
 }

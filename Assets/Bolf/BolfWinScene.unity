@@ -1055,10 +1055,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1374812557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21085a1404aa5c419de6ffae5b810bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 02376304eb8bac349a0a5bd7d94f573a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 1374812559}
+  loadSceneButton: {fileID: 1374812559}
+  SceneToLoad:
+    m_Handle: 0
 --- !u!1 &1418506790
 GameObject:
   m_ObjectHideFlags: 0
